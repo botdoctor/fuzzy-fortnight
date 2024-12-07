@@ -1,8 +1,13 @@
 function hello(){
     alert('hello world welcome to joe kleves final');
-    document.querySelector('h1').innerHTML = 'Goodbye';
+    if (document.querySelector('h1').innerHTML === 'Hello world'){
+        document.querySelector('h1').innerHTML = 'Goodbye';
+    } else {
+    document.querySelector('h1').innerHTML = "Hello world";
+    }
 }
-
+// This function will have a popup alert that says the text and then checks if the H1 value is equal to Hello world. If it is it will change it to goodbye
+// This is where my if else statement is located
 
 function test(){
 alert('testing')
@@ -17,3 +22,7 @@ function displayInput() {
         output.textContent = 'Please enter something!';
     }
 }
+
+
+
+let play = document.getElementById("playmusic")
