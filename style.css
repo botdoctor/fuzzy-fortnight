@@ -7,7 +7,7 @@ body {
     background: linear-gradient(90deg, 
         red, orange, yellow, green, blue, indigo, violet, red);
     background-size: 1500% 1500%;
-    animation: rainbow 10s infinite linear;
+    animation: rainbow 15s infinite linear;
 }
 
 /* Rainbow gradient animation */
