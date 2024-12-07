@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Spinning Text</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/loaders/FontLoader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/geometries/TextGeometry.js"></script>
+    <script>
+        // Scene, Camera, Renderer
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+
+        // Load Font and Create Text
+        const loader = new THREE.FontLoader();
+        loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
+            const textGeometry = new THREE.TextGeometry('JK', {
+                font: font,
+                size: 1,
+                height: 0.5,
+                curveSegments: 12,
+            });
+
+            // Center the geometry
+            textGeometry.computeBoundingBox();
+            const boundingBox = textGeometry.boundingBox;
+            const offsetX = (boundingBox.max.x - boundingBox.min.x) / 2;
+            const offsetY = (boundingBox.max.y - boundingBox.min.y) / 2;
+            const offsetZ = (boundingBox.max.z - boundingBox.min.z) / 2;
+            textGeometry.translate(-offsetX, -offsetY, -offsetZ);
+
+            // Create Material and Mesh
+            const textMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff });
+            const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+            scene.add(textMesh);
+
+            // Animation
+            function animate() {
+                requestAnimationFrame(animate);
+                textMesh.rotation.y += 0.01; // Spin the text
+                renderer.render(scene, camera);
+            }
+
+            animate();
+        });
+
+        // Lighting
+        const light = new THREE.PointLight(0xffffff, 1, 100);
+        light.position.set(10, 10, 10);
+        scene.add(light);
+
+        // Camera Position
+        camera.position.z = 5;
+    </script>
+</body>
+</html>
