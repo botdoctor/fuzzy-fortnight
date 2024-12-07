@@ -24,5 +24,6 @@ function displayInput() {
 }
 
 
-
+let username;
+username = window.prompt(Input a number 1-10)
 let play = document.getElementById("playmusic")
