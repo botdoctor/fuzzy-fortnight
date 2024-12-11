@@ -1,18 +1,15 @@
-function hello(){
-    alert('hello world welcome to joe kleves final');
-    if (document.querySelector('h1').innerHTML === 'Hello world'){
-        document.querySelector('h1').innerHTML = 'Goodbye';
+// Named function: hello
+function hello() {
+    alert('Hello world! Welcome to Joe Kleve\'s final project.');
+    const header = document.querySelector('h1');
+    if (header.innerHTML === 'Hello world') {
+        header.innerHTML = 'Goodbye';
     } else {
-    document.querySelector('h1').innerHTML = "Hello world";
+        header.innerHTML = "Hello world";
     }
 }
-// This function will have a popup alert that says the text and then checks if the H1 value is equal to Hello world. If it is it will change it to goodbye
-// This is where my if else statement is located
 
-function test(){
-alert('testing')
-}
-
+// Named function: displayInput
 function displayInput() {
     const input = document.getElementById('userInput').value;
     const output = document.getElementById('output');
@@ -23,7 +20,43 @@ function displayInput() {
     }
 }
 
+// Create and use an object
+const person = {
+    name: "Joe Kleve",
+    age: 23,
+    occupation: "Website Maker"
+};
+console.log(`Object example: ${person.name} is a ${person.occupation} at age ${person.age}.`);
 
-let username;
-username = window.prompt(Input a number 1-10)
-let play = document.getElementById("playmusic")
+// Create and use an array + loop
+const messages = ["Welcome to my site!", "Enjoy exploring!", "Check out the About page!", "Try the guessing game!"];
+for (let i = 0; i < messages.length; i++) {
+    console.log(messages[i]);
+}
+
+// This is a guessing game I got from chatgpt that uses math.random to make a random number This also includes the try/catch of errors
+const secretNumber = Math.floor(Math.random() * 10) + 1;  // random int 1-10
+
+function checkGuess() {
+    const guessInput = document.getElementById('guessInput').value;
+    const guessOutput = document.getElementById('guessOutput');
+    try {
+        const guess = parseInt(guessInput, 10);
+        if (isNaN(guess)) {
+            throw new Error("Not a valid number.");
+        }
+
+        if (guess === secretNumber) {
+            guessOutput.textContent = `Correct! The secret number was ${secretNumber}.`;
+        } else {
+            guessOutput.textContent = `Incorrect. Try again!`;
+        }
+    } catch (error) {
+        guessOutput.textContent = `Error: ${error.message}`;
+    }
+}
+
+// Made instead of button onlick="" made them event listeners since previous way did not work
+document.getElementById('helloBtn').addEventListener('click', hello);
+document.getElementById('displayInputBtn').addEventListener('click', displayInput);
+document.getElementById('guessBtn').addEventListener('click', checkGuess);
