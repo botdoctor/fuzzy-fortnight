@@ -4,9 +4,14 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-  <title>My Website</title>
+  <title>Joe's Website</title>
   <link rel="stylesheet" href="style.css"/>
   <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+  <!--Bootstrap is used for styling of buttons and such and it is imported right here below.
+  Don't totally understand how it imports from this link but I know it works.
+ Explanation from ChatGPT
+  Imports the Bootstrap 5 CSS framework from a CDN. 
+  integrity and crossorigin attributes are for security and cross-origin resource handling.-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
   <script src="index.js" defer></script>
 </head>
@@ -41,7 +46,8 @@
         <div id="guessOutput" class="mt-2"></div>
       </div>
 
-      <!-- Hello toggle button -->
+      <!-- Welcome text button that has an ID of HelloBTN the id is then called with an event listener in the index.js file
+       see comments in index.js -->
       <button id="helloBtn" class="btn btn-info">Welcome Text Button</button>
     </main>
   </div>

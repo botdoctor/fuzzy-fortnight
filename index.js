@@ -9,7 +9,7 @@ function hello() {
     }
 }
 
-// Named function: displayInput
+// Named function: displayInput.
 function displayInput() {
     const input = document.getElementById('userInput').value;
     const output = document.getElementById('output');
@@ -20,22 +20,25 @@ function displayInput() {
     }
 }
 
-// Create and use an object
+// Here is my object and I 
 const person = {
     name: "Joe Kleve",
     age: 23,
     occupation: "Website Maker"
 };
-console.log(`Object example: ${person.name} is a ${person.occupation} at age ${person.age}.`);
-
-// Create and use an array + loop
+function personpopup() {
+alert(`Object example: ${person.name} is a ${person.occupation} at age ${person.age}.`);
+}
+// Create and use an array + loop. This will print on the website opening
 const messages = ["Welcome to my site!", "Enjoy exploring!", "Check out the About page!", "Try the guessing game!"];
 for (let i = 0; i < messages.length; i++) {
-    console.log(messages[i]);
+    alert(messages[i]);
 }
 
 // This is a guessing game I got from chatgpt that uses math.random to make a random number This also includes the try/catch of errors
 const secretNumber = Math.floor(Math.random() * 10) + 1;  // random int 1-10
+
+
 
 function checkGuess() {
     const guessInput = document.getElementById('guessInput').value;
@@ -60,3 +63,10 @@ function checkGuess() {
 document.getElementById('helloBtn').addEventListener('click', hello);
 document.getElementById('displayInputBtn').addEventListener('click', displayInput);
 document.getElementById('guessBtn').addEventListener('click', checkGuess);
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('personbtn').addEventListener('click', personpopup);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    arrayandloop();
+});
