@@ -1,2 +1,2 @@
 # fuzzy-fortnight
-This is my repository for testing web apps. And possibly my final for programming
+This is my final for introduction to web development.
